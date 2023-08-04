@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.660066.xyz","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false,"dimmer":false},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Doris学习笔记（一）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Doris学习笔记（一）">
+<meta property="og:url" content="https://blog.660066.xyz/2023/04/11/Doris%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:site_name" content="大橙子">
+<meta property="og:description" content="Doris学习笔记（一）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-11T08:19:57.000Z">
+<meta property="article:modified_time" content="2023-08-04T03:45:35.778Z">
+<meta property="article:author" content="BigOrange">
+<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="大数据">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.660066.xyz/2023/04/11/Doris%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.660066.xyz/2023/04/11/Doris%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/","path":"2023/04/11/Doris学习笔记（一）/","title":"Doris学习笔记（一）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Doris学习笔记（一） | 大橙子</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">大橙子</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>links</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81Doris%E6%9E%B6%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">一、Doris架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-FE"><span class="nav-number">1.1.</span> <span class="nav-text">1. FE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-BE"><span class="nav-number">1.2.</span> <span class="nav-text">2. BE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-MySQL-Client"><span class="nav-number">1.3.</span> <span class="nav-text">3. MySQL Client</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Broker"><span class="nav-number">1.4.</span> <span class="nav-text">4. Broker</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%BC%96%E8%AF%91Doris"><span class="nav-number">2.</span> <span class="nav-text">二、编译Doris</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85docker"><span class="nav-number">2.1.</span> <span class="nav-text">1. 安装docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8Docker%E5%BC%80%E5%8F%91%E9%95%9C%E5%83%8F%E7%BC%96%E8%AF%91"><span class="nav-number">2.2.</span> <span class="nav-text">2. 使用Docker开发镜像编译</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81Doris%E5%AE%89%E8%A3%85%E8%A6%81%E6%B1%82"><span class="nav-number">3.</span> <span class="nav-text">三、Doris安装要求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">3.1.</span> <span class="nav-text">1. 注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3"><span class="nav-number">3.2.</span> <span class="nav-text">2. 默认端口</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">BigOrange</p>
+  <div class="site-description" itemprop="description">一名优秀的程序员，在穿越单行道时也会确认双向的来车情况。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.660066.xyz/2023/04/11/Doris%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BigOrange">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大橙子">
+      <meta itemprop="description" content="一名优秀的程序员，在穿越单行道时也会确认双向的来车情况。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Doris学习笔记（一） | 大橙子">
+      <meta itemprop="description" content="Doris学习笔记（一）">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Doris学习笔记（一）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-04-11 16:19:57" itemprop="dateCreated datePublished" datetime="2023-04-11T16:19:57+08:00">2023-04-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-08-04 11:45:35" itemprop="dateModified" datetime="2023-08-04T11:45:35+08:00">2023-08-04</time>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Doris学习笔记（一）</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="一、Doris架构"><a href="#一、Doris架构" class="headerlink" title="一、Doris架构"></a>一、Doris架构</h1><p>分为FE（Frontend）、BE（Backend）两种角色、两个进程。FE、BE都可以线性扩展。</p>
+<h2 id="1-FE"><a href="#1-FE" class="headerlink" title="1. FE"></a>1. FE</h2><ul>
+<li>存储、维护集群<strong>元数据</strong></li>
+<li>接收、解析查询请求，规划查询计划，调度查询执行，返回查询结果。</li>
+<li>主要为三个角色：<ul>
+<li><strong>Leader</strong>和<strong>Follower</strong>：用来达到元数据的高可用，保证单节点宕机后，元数据仍能实时在线恢复，不影响服务。</li>
+<li><strong>Observer</strong>：用来扩展查询节点，同时起到了备份作用。（集群压力非常大，需要扩展整个查询能力，可以增加Observer节点。Observer不参与写入，只参与查询）</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-BE"><a href="#2-BE" class="headerlink" title="2. BE"></a>2. BE</h2><ul>
+<li>负责物理数据的存储和计算</li>
+<li>数据的可靠性由BE保证，对整个数据存储多副本或者三副本。</li>
+</ul>
+<h2 id="3-MySQL-Client"><a href="#3-MySQL-Client" class="headerlink" title="3. MySQL Client"></a>3. MySQL Client</h2><p>Doris借助MySQL协议，用户可以通过ODBC&#x2F;JDBC以及MySQL客户端来直接访问Doris</p>
+<h2 id="4-Broker"><a href="#4-Broker" class="headerlink" title="4. Broker"></a>4. Broker</h2><p>Broker是一个独立的无状态进程。封装了文件系统接口，可以读取远端存储系统中文件的能力，包括HDFS、S3、BOS等。</p>
+<h1 id="二、编译Doris"><a href="#二、编译Doris" class="headerlink" title="二、编译Doris"></a>二、编译Doris</h1><h2 id="1-安装docker"><a href="#1-安装docker" class="headerlink" title="1. 安装docker"></a>1. 安装docker</h2><ol>
+<li><p>更新yum包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update -y</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>卸载旧版本的docker</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove docker docker-common docker-selinux  docker-engine</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装yum-util工具包和devicemapper驱动依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新yum镜像源</p>
+</li>
+<li><p>查看所有仓库中的docker版本，并选择特定的版本安装，一般可直接安装最新版</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list docker-ce --showduplicates | sort -r</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装docker</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">安装最新稳定版</span></span><br><span class="line">yum install docker-ce -y </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动并设置开机自启</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br><span class="line">systemctl enable docker</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="2-使用Docker开发镜像编译"><a href="#2-使用Docker开发镜像编译" class="headerlink" title="2. 使用Docker开发镜像编译"></a>2. 使用Docker开发镜像编译</h2><ol>
+<li><p>下载源码并解压</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/apache/doris/1.2/1.2.3-rc02/apache-doris-1.2.3-src.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压源码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf apache-doris-1.2.3-src.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>拉取docker镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull apache/doris:build-env-for-1.2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>挂载本都目录运行镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -it \ </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">挂载Maven的仓库</span></span><br><span class="line">-v [maven的.m2目录]:/root/.m2 \ </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">挂载Doris源码</span></span><br><span class="line">-v [刚刚解压的doris目录]:/root/doris/ \</span><br><span class="line">apache/doris:build-env-for-1.2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>切换JDK8</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alternatives --set java java-1.8.0-openjdk.x86_64</span><br><span class="line">alternatives --set javac java-1.8.0-openjdk.x86_64</span><br><span class="line">export JAVA_HOME=/usr/lib/jvm/java-1.8.0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh build.sh --clean --be --fe --ui</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="三、Doris安装要求"><a href="#三、Doris安装要求" class="headerlink" title="三、Doris安装要求"></a>三、Doris安装要求</h1><h2 id="1-注意事项"><a href="#1-注意事项" class="headerlink" title="1. 注意事项"></a>1. 注意事项</h2><ol>
+<li><strong>FE</strong>主要存储元数据、日志和image。通常几百MB到几GB不等。</li>
+<li><strong>BE</strong>主要存储用户数据。<strong>磁盘空间按用户总数据量*副本数计算</strong>，<strong>额外预留40%空间</strong>用作后台compaction以及中间数据存放。</li>
+<li><strong>一台机器可以部署多个BE实例，但是只能部署一个FE。</strong>需要三个副本数据，至少需要三台机器部署BE实例。</li>
+<li>多个FE所在服务器时钟需要保持一致，<strong>最多允许偏差5秒</strong>。</li>
+<li>测试环境可以一个BE。实际生成环境<strong>BE实例数量决定了整体查询延迟</strong>。</li>
+<li>所有部署节点关闭SWAP</li>
+<li>FE节点至少为1个（一个Follower）。当部署一个Follower和一个Observer时，可以实现读高可用。部署三个Follower时，可以实现读写高可用（HA）。</li>
+<li><strong>Follower必须为奇数（脑裂、选举），Observer数量随意</strong>。</li>
+<li><strong>集群可用性</strong>要求高时，部署一个Follower和一到三个Observer。<strong>离线业务</strong>部署一个Follower和一到三个Observer。</li>
+<li>Broker通常每台机器部署一个实例即可。</li>
+</ol>
+<h2 id="2-默认端口"><a href="#2-默认端口" class="headerlink" title="2. 默认端口"></a>2. 默认端口</h2><table>
+<thead>
+<tr>
+<th align="center">实例名称</th>
+<th align="center">端口名称</th>
+<th align="center">默认端口</th>
+<th align="center">通讯方向</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">BE</td>
+<td align="center">be_port</td>
+<td align="center">9060</td>
+<td align="center">FE—&gt;BE</td>
+<td align="center">BE上的thrift server的端口<br>用于接收FE的请求</td>
+</tr>
+<tr>
+<td align="center">BE</td>
+<td align="center">webserver_port</td>
+<td align="center">8040</td>
+<td align="center">BE&lt;—&gt;FE</td>
+<td align="center">BE上的Http server端口</td>
+</tr>
+<tr>
+<td align="center">BE</td>
+<td align="center">heartbeat_serivce_port</td>
+<td align="center">9050</td>
+<td align="center">FE—&gt;BE</td>
+<td align="center">BE上的心跳服务端口<br>用于接收来自FE的心跳</td>
+</tr>
+<tr>
+<td align="center">BE</td>
+<td align="center">brpc_port</td>
+<td align="center">8060</td>
+<td align="center">FE&lt;—&gt;BE<br>BE&lt;—&gt;BE</td>
+<td align="center">BE上的brpc端口<br>用于BE之间的通信</td>
+</tr>
+<tr>
+<td align="center">FE</td>
+<td align="center">http_port</td>
+<td align="center">8030</td>
+<td align="center">FE&lt;—&gt;FE<br>用户&lt;—&gt;FE</td>
+<td align="center">FE上的http server端口</td>
+</tr>
+<tr>
+<td align="center">FE</td>
+<td align="center">rpc_port</td>
+<td align="center">9020</td>
+<td align="center">BE—&gt;FE<br>FE&lt;—&gt;FE</td>
+<td align="center">FE上的thrift server端口</td>
+</tr>
+<tr>
+<td align="center">FE</td>
+<td align="center">query_port</td>
+<td align="center">9030</td>
+<td align="center">用户&lt;—&gt;FE</td>
+<td align="center">FE上的mysql server端口</td>
+</tr>
+<tr>
+<td align="center">FE</td>
+<td align="center">edit_log_port</td>
+<td align="center">9010</td>
+<td align="center">FE&lt;—&gt;FE</td>
+<td align="center">FE上bdbje之间通信用的端口</td>
+</tr>
+<tr>
+<td align="center">Broker</td>
+<td align="center">broker_ipc_port</td>
+<td align="center">8000</td>
+<td align="center">BE—&gt;Broker<br>FE—&gt;Broker</td>
+<td align="center">Boker上的thrift server<br>用于接收请求</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag"># 大数据</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/03/23/XBRL%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" rel="prev" title="XBRL笔记（一）">
+                  <i class="fa fa-angle-left"></i> XBRL笔记（一）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/05/08/Doris%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%EF%BC%88Minio%20S3%E5%AD%98%E5%82%A8%EF%BC%89/" rel="next" title="doris数据备份（minio S3存储）">
+                  doris数据备份（minio S3存储） <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">BigOrange</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+  <div class="powered-by">
+    <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+    <img src="data:image/png;base64,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" style="width: 200px;height: 20px; margin-left: 0px;" /></a>
+    <span id="sitetime"></span>
+  </div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
