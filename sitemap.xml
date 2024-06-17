@@ -344,14 +344,7 @@
 
   
   <url>
-    <loc>https://blog.660066.xyz/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2024-06-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.660066.xyz/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
+    <loc>https://blog.660066.xyz/tags/%E5%BC%80%E5%8F%91%E7%BA%AA%E5%AE%9E/</loc>
     <lastmod>2024-06-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -365,7 +358,7 @@
   </url>
   
   <url>
-    <loc>https://blog.660066.xyz/tags/%E5%BC%80%E5%8F%91%E7%BA%AA%E5%AE%9E/</loc>
+    <loc>https://blog.660066.xyz/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2024-06-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -380,6 +373,13 @@
   
   <url>
     <loc>https://blog.660066.xyz/tags/Docx4j/</loc>
+    <lastmod>2024-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.660066.xyz/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2024-06-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
