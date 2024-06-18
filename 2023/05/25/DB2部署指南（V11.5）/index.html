@@ -19,36 +19,36 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.660066.xyz","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false,"dimmer":true},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"log.660066.xyz","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false,"dimmer":true},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="DB2部署指南（以V11.5版本为例）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DB2部署指南（V11.5）">
-<meta property="og:url" content="https://blog.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/index.html">
+<meta property="og:url" content="https://log.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/index.html">
 <meta property="og:site_name" content="大橙子">
 <meta property="og:description" content="DB2部署指南（以V11.5版本为例）">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525084343331.png">
-<meta property="og:image" content="https://blog.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525092222315.png">
-<meta property="og:image" content="https://blog.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525085003607.png">
-<meta property="og:image" content="https://blog.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525085059916.png">
-<meta property="og:image" content="https://blog.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525085218145.png">
-<meta property="og:image" content="https://blog.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525085247523.png">
-<meta property="og:image" content="https://blog.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525085428493.png">
-<meta property="og:image" content="https://blog.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525090803009.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525084343331.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525092222315.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525085003607.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525085059916.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525085218145.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525085247523.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525085428493.png">
+<meta property="og:image" content="https://log.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525090803009.png">
 <meta property="article:published_time" content="2023-05-25T00:31:05.000Z">
 <meta property="article:modified_time" content="2023-08-04T03:45:35.773Z">
 <meta property="article:author" content="BigOrange">
 <meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525084343331.png">
+<meta name="twitter:image" content="https://log.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/image-20230525084343331.png">
 
 
-<link rel="canonical" href="https://blog.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/">
+<link rel="canonical" href="https://log.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/","path":"2023/05/25/DB2部署指南（V11.5）/","title":"DB2部署指南（V11.5）"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://log.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/","path":"2023/05/25/DB2部署指南（V11.5）/","title":"DB2部署指南（V11.5）"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>DB2部署指南（V11.5） | 大橙子</title>
@@ -170,7 +170,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://log.660066.xyz/2023/05/25/DB2%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97%EF%BC%88V11.5%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
